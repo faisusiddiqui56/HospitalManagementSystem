@@ -34,7 +34,7 @@ export class CompletedAppointMents {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.http.delete(`http://localhost:5032/api/Appointment/Delete/${id}`, { responseType: 'text' }).subscribe({
+          this.http.delete(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/Delete/${id}`, { responseType: 'text' }).subscribe({
             next: (res: any) => {
               console.log("Deleted", res);
               this.appointments = this.appointments.filter(p => p.id != id);
@@ -64,7 +64,7 @@ export class CompletedAppointMents {
 
 
     ngOnInit() {
-    this.http.get(`http://localhost:5032/api/Appointment/CompletedList?t=${new Date().getTime()}`).subscribe({
+    this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/CompletedList?t=${new Date().getTime()}`).subscribe({
       next: (res: any) => {
         this.appointments = res;
         this.cdr.detectChanges();

@@ -34,7 +34,7 @@ export class AppointMents implements OnInit, OnDestroy {
   AppointmentsList: Array<any> = [];
 
   formHandler() {
-    this.http.post("http://localhost:5032/api/Appointment/Create", this.appointments, { responseType: 'text' }).subscribe({
+    this.http.post("https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/Create", this.appointments, { responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log("Appointments added", res);
         
@@ -70,7 +70,7 @@ export class AppointMents implements OnInit, OnDestroy {
   }
 
   updateAppointMents() {
-    this.http.put(`http://localhost:5032/api/Appointment/Edit/${this.editappointments.id}`, this.editappointments, { responseType: 'text' }).subscribe({
+    this.http.put(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/Edit/${this.editappointments.id}`, this.editappointments, { responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log("Updated", res);
         
@@ -107,7 +107,7 @@ export class AppointMents implements OnInit, OnDestroy {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:5032/api/Appointment/Delete/${id}`, { responseType: 'text' }).subscribe({
+        this.http.delete(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/Delete/${id}`, { responseType: 'text' }).subscribe({
           next: (res: any) => {
             console.log("Deleted", res);
             this.AppointmentsList = this.AppointmentsList.filter(p => p.id != id);
@@ -136,7 +136,7 @@ export class AppointMents implements OnInit, OnDestroy {
   }
 
   completeappointment = (id : number) => {
-     this.http.put(`http://localhost:5032/api/Appointment/CompletedList/${id}`, id).subscribe({
+     this.http.put(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/CompletedList/${id}`, id).subscribe({
       next: (res: any) => {
         alert(res.Message);
         
@@ -155,7 +155,7 @@ export class AppointMents implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.http.get(`http://localhost:5032/api/Appointment/List?t=${new Date().getTime()}`).subscribe({
+    this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/List?t=${new Date().getTime()}`).subscribe({
       next: (res: any) => {
         this.AppointmentsList = res;
         this.cdr.detectChanges(); // Force UI update

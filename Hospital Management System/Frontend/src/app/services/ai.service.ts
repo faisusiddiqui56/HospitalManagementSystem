@@ -18,7 +18,7 @@ export class AiService {
   // Using the backend API URL. Make sure this matches where ASP.NET Core runs locally.
   // Standard port for .NET 8 might be different, but typically we proxy or use the full URL.
   // We'll use a generic one, assuming local testing URL for the backend.
-  private apiUrl = 'http://localhost:5032/api/ai'; // Verify port from appsettings or launchSettings
+  private apiUrl = 'https://hospitalmanagementsystem-hqn7.onrender.com/api/ai'; // Verify port from appsettings or launchSettings
 
   constructor(private http: HttpClient) { }
 

@@ -22,3 +22,4 @@ COPY --from=publish /app/publish .
 ENV ASPNETCORE_HTTP_PORTS=8080
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "AppointMentBooking.dll"]
+

@@ -33,7 +33,7 @@ export class Patient implements OnInit, OnDestroy {
       mobile: this.patient.mobile
     };
 
-    this.http.post("http://localhost:5032/api/Patient/Create", payload, { responseType: 'text' }).subscribe({
+    this.http.post("https://hospitalmanagementsystem-hqn7.onrender.com/api/Patient/Create", payload, { responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log("Patient added", res);
         const modalElement = document.getElementById('exampleModal');
@@ -78,7 +78,7 @@ export class Patient implements OnInit, OnDestroy {
   }
 
   updatePatient() {
-    this.http.put(`http://localhost:5032/api/Patient/Edit/${this.editPatient.id}`, this.editPatient, { responseType: 'text' }).subscribe({
+    this.http.put(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Patient/Edit/${this.editPatient.id}`, this.editPatient, { responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log("Updated", res);
         
@@ -117,7 +117,7 @@ export class Patient implements OnInit, OnDestroy {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:5032/api/Patient/Delete/${id}`, { responseType: 'text' }).subscribe({
+        this.http.delete(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Patient/Delete/${id}`, { responseType: 'text' }).subscribe({
           next: (res: any) => {
             console.log("Deleted", res);
             this.patientList = this.patientList.filter(p => p.id != id);
@@ -146,7 +146,7 @@ export class Patient implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.http.get(`http://localhost:5032/api/Patient/List?t=${new Date().getTime()}`)
+    this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Patient/List?t=${new Date().getTime()}`)
     .subscribe({
       next : (res : any) => {
         this.patientList = res;

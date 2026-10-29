@@ -26,7 +26,7 @@ export class Doctor implements OnInit, OnDestroy {
   doctorList : Array<any> = []
 
   formHandler() {
-    this.http.post("http://localhost:5032/api/Doctor/Create", this.doctor, { responseType: 'text' }).subscribe({
+    this.http.post("https://hospitalmanagementsystem-hqn7.onrender.com/api/Doctor/Create", this.doctor, { responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log("Doctor added", res);
         const modalElement = document.getElementById('exampleModal');
@@ -73,7 +73,7 @@ export class Doctor implements OnInit, OnDestroy {
 
 
   updateDoctor() {
-    this.http.put(`http://localhost:5032/api/Doctor/Edit/${this.editDoctor.id}`, this.editDoctor, { responseType: 'text' }).subscribe({
+    this.http.put(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Doctor/Edit/${this.editDoctor.id}`, this.editDoctor, { responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log("Updated", res);
         
@@ -112,7 +112,7 @@ export class Doctor implements OnInit, OnDestroy {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:5032/api/Doctor/Delete/${id}`, { responseType: 'text' }).subscribe({
+        this.http.delete(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Doctor/Delete/${id}`, { responseType: 'text' }).subscribe({
           next: (res: any) => {
             console.log("Deleted", res);
             this.doctorList = this.doctorList.filter(d => d.id != id);
@@ -141,7 +141,7 @@ export class Doctor implements OnInit, OnDestroy {
   }
 
   ngOnInit(){
-    this.http.get(`http://localhost:5032/api/Doctor/list?t=${new Date().getTime()}`)
+    this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Doctor/list?t=${new Date().getTime()}`)
     .subscribe({
       next : (res : any) => {
         this.doctorList = res;

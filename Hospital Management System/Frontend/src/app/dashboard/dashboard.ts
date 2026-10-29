@@ -130,10 +130,10 @@ export class Dashboard implements OnInit {
     
     // Fetch all 4 APIs concurrently
     forkJoin({
-      doctors: this.http.get(`http://localhost:5032/api/Doctor/list?t=${ts}`),
-      patients: this.http.get(`http://localhost:5032/api/Patient/List?t=${ts}`),
-      appointments: this.http.get(`http://localhost:5032/api/Appointment/List?t=${ts}`),
-      completed: this.http.get(`http://localhost:5032/api/Appointment/CompletedList?t=${ts}`)
+      doctors: this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Doctor/list?t=${ts}`),
+      patients: this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Patient/List?t=${ts}`),
+      appointments: this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/List?t=${ts}`),
+      completed: this.http.get(`https://hospitalmanagementsystem-hqn7.onrender.com/api/Appointment/CompletedList?t=${ts}`)
     }).subscribe({
       next: (res: any) => {
         const docs = res.doctors || [];
