@@ -1,10 +1,9 @@
 # 1. Build Stage
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY ["AppointMentBooking/AppointMentBooking.csproj", "AppointMentBooking/"]
-RUN dotnet restore "AppointMentBooking/AppointMentBooking.csproj"
+COPY ["AppointMentBooking.csproj", "./"]
+RUN dotnet restore "AppointMentBooking.csproj"
 COPY . .
-WORKDIR "/src/AppointMentBooking"
 RUN dotnet build "AppointMentBooking.csproj" -c Release -o /app/build
 
 # 2. Publish Stage
