@@ -1,0 +1,95 @@
+/* Globals & Utilities */
+.btn-cyan {
+  background-color: #00cfb6;
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-cyan:hover {
+  background-color: #00b39c;
+}
+.section-title {
+  color: #2b3674;
+}
+.section-subtitle {
+  max-width: 800px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Hero Section */
+.hp-hero {
+  /* Using a wider, horizontally framed Unsplash image for hero background */
+  background: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+  background-size: cover;
+  height: 450px;
+  position: relative;
+}
+.hero-box {
+  background-color: rgba(75, 133, 219, 0.9);
+  padding: 50px 40px;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 450px;
+  color: #ffffff;
+}
+.hero-title {
+  font-size: 26px;
+  font-weight: 500;
+}
+.hero-subtitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #00cfb6;
+  letter-spacing: 1px;
+}
+
+/* Services */
+.service-icon i {
+  font-size: 46px;
+  color: #00cfb6;
+}
+
+.service-item {
+  background-color: var(--primary) !important;
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item h5, .service-item p {
+  color: #ffffff !important;
+}
+
+.service-item p {
+  opacity: 0.85;
+}
+
+@keyframes blinkHover {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.service-item:hover {
+  animation: blinkHover 0.4s ease-in-out;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 207, 182, 0.15) !important;
+}
+
+/* Diagnose & Treat */
+.diagnose-img {
+  min-height: 400px;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Specialists */
+.specialist-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.specialist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}

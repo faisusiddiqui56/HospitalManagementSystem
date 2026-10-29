@@ -1,0 +1,104 @@
+<div class="dashboard-layout">
+  <div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
+  <aside class="sidebar" [class.show]="isSidebarOpen">
+    <div class="sidebar-header">
+      <div class="logo d-flex align-items-center gap-2">
+        <i class="bi bi-plus-square-fill" style="color: #00cfb6; font-size: 24px;"></i>
+        <span style="font-family: 'Arial', sans-serif; font-size: 22px; font-weight: bold; color: #ffffff;">Health <span style="color: #4b85db;">Plus</span></span>
+      </div>
+    </div>
+    
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleSidebar()">
+          <span class="icon">📊</span> Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/AppointMents" routerLinkActive="active" (click)="toggleSidebar()">
+          <span class="icon">📅</span> Appointments
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/Completed" routerLinkActive="active" (click)="toggleSidebar()">
+          <span class="icon">✅</span> Completed Appointment
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/Doctor" routerLinkActive="active" (click)="toggleSidebar()">
+          <span class="icon">👨‍⚕️</span> Doctors
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/Patient" routerLinkActive="active" (click)="toggleSidebar()">
+          <span class="icon">🛌</span> Patients
+        </a>
+      </li>
+      <li>
+        <a routerLink="/dashboard/MedicalStore" routerLinkActive="active" (click)="toggleSidebar()">
+          <span class="icon">💊</span> Medical Store
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <button (click)="logout()" class="btn-logout">
+        <span class="icon">🚪</span> Logout
+      </button>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn p-0 d-md-none me-2" (click)="toggleSidebar()" style="background-color: transparent; border: none; color: #ffffff;">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="topbar-title">
+          <h2 class="d-none d-sm-block gradient-text">Hospital Management System</h2>
+          <h2 class="d-block d-sm-none fs-5 mb-0 gradient-text">HMS</h2>
+        </div>
+      </div>
+      
+      <div class="topbar-right">
+        <div class="search-bar shadow-sm d-none d-md-flex">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search for anything..." #searchInput (keyup.enter)="onSearch(searchInput.value)" />
+        </div>
+
+        <div class="notification-bell">
+          <i class="bi bi-bell"></i>
+          <span class="notification-pulse"></span>
+        </div>
+
+        <div class="user-profile dropdown">
+          <div class="avatar dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+            A
+          </div>
+          <div class="user-info">
+            <span class="name">Faisal</span>
+            <span class="role">Siddiqui</span>
+          </div>
+          
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2 custom-dropdown" aria-labelledby="profileDropdown">
+            <li>
+              <a class="dropdown-item py-2" routerLink="/dashboard/profile">
+                <i class="bi bi-person text-muted me-2"></i> Profile
+              </a>
+            </li>
+            <li><hr class="dropdown-divider my-1"></li>
+            <li>
+              <a class="dropdown-item py-2 text-danger" href="javascript:void(0)" (click)="logout()">
+                <i class="bi bi-box-arrow-right me-2"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

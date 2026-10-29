@@ -1,0 +1,66 @@
+<div class="auth-page">
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <div class="logo">
+        <i class="bi bi-plus-square-fill" style="color: #00cfb6;"></i>
+        Health Plus
+      </div>
+      <h1>Join our network.</h1>
+      <p>Create an account to join the hospital staff portal. Get access to advanced patient management tools and
+        analytics.</p>
+
+      <div class="quote-box"
+        style="margin-top: 40px; padding-left: 20px; border-left: 3px solid rgba(255,255,255,0.5);">
+        <p style="font-style: italic; font-size: 16px; margin: 0;">"Empowering healthcare professionals with the
+          technology they need to save lives and improve patient care every single day."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Create an account</h2>
+        <p>Enter your details to register</p>
+      </div>
+
+      <div *ngIf="errorMessage()" class="alert-error">
+        {{ errorMessage() }}
+      </div>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input id="name" type="text" formControlName="name" class="input-control" placeholder="Dr. John Doe" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input id="email" type="email" formControlName="email" class="input-control" placeholder="Enter your email"
+            autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input id="mobile" type="tel" formControlName="mobile" class="input-control" placeholder="10-digit number" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" class="input-control"
+            placeholder="Create a password" autocomplete="new-password" />
+        </div>
+
+        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary w-100 mt-2">
+          Create Account
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+        <p><a routerLink="/">← Back to Home</a></p>
+      </div>
+    </div>
+  </div>
+</div>

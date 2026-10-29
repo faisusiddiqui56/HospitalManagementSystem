@@ -1,0 +1,134 @@
+{
+  "hash": "20205dca",
+  "configHash": "0e613474",
+  "lockfileHash": "0db158d4",
+  "browserHash": "9984f485",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "501d474c",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "cc05eb2b",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "fc3d08f1",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "3de211a0",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "35555464",
+      "needsInterop": false
+    },
+    "@angular/platform-server/init": {
+      "src": "../../../../../../node_modules/@angular/platform-server/fesm2022/init.mjs",
+      "file": "@angular_platform-server_init.js",
+      "fileHash": "91fc9594",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "d54a5882",
+      "needsInterop": false
+    },
+    "@angular/ssr": {
+      "src": "../../../../../../node_modules/@angular/ssr/fesm2022/ssr.mjs",
+      "file": "@angular_ssr.js",
+      "fileHash": "3fda3d65",
+      "needsInterop": false
+    },
+    "@angular/ssr/node": {
+      "src": "../../../../../../node_modules/@angular/ssr/fesm2022/node.mjs",
+      "file": "@angular_ssr_node.js",
+      "fileHash": "70c3f2f5",
+      "needsInterop": false
+    },
+    "express": {
+      "src": "../../../../../../node_modules/express/index.js",
+      "file": "express.js",
+      "fileHash": "1a7ff8f7",
+      "needsInterop": true
+    },
+    "highcharts-angular": {
+      "src": "../../../../../../node_modules/highcharts-angular/fesm2022/highcharts-angular.mjs",
+      "file": "highcharts-angular.js",
+      "fileHash": "5ef0fed7",
+      "needsInterop": false
+    },
+    "highcharts": {
+      "src": "../../../../../../node_modules/highcharts/esm/highcharts.js",
+      "file": "highcharts.js",
+      "fileHash": "a5d77eb7",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/cjs/index.js",
+      "file": "rxjs.js",
+      "fileHash": "bd8fb72c",
+      "needsInterop": true
+    },
+    "sweetalert2": {
+      "src": "../../../../../../node_modules/sweetalert2/dist/sweetalert2.esm.all.js",
+      "file": "sweetalert2.js",
+      "fileHash": "2ea1a335",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "_xhr-chunk-YCZKHgf9": {
+      "file": "_xhr-chunk-YCZKHgf9.js",
+      "isDynamicEntry": false
+    },
+    "bundled-domino-BARLrWmf": {
+      "file": "bundled-domino-BARLrWmf.js",
+      "isDynamicEntry": false
+    },
+    "common-B65YdUen": {
+      "file": "common-B65YdUen.js",
+      "isDynamicEntry": false
+    },
+    "core-7suaIGWo": {
+      "file": "core-7suaIGWo.js",
+      "isDynamicEntry": false
+    },
+    "http-BMt9SzbB": {
+      "file": "http-BMt9SzbB.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-Lr6gDRjC": {
+      "file": "platform-browser-Lr6gDRjC.js",
+      "isDynamicEntry": false
+    },
+    "rolldown-runtime-C7HZzL1F": {
+      "file": "rolldown-runtime-C7HZzL1F.js",
+      "isDynamicEntry": false
+    },
+    "router-Cq5T0ZUb": {
+      "file": "router-Cq5T0ZUb.js",
+      "isDynamicEntry": false
+    },
+    "ssr-CUki_q0Q": {
+      "file": "ssr-CUki_q0Q.js",
+      "isDynamicEntry": false
+    },
+    "xhr2-BpIBBfsG": {
+      "file": "xhr2-BpIBBfsG.js",
+      "isDynamicEntry": true
+    }
+  }
+}

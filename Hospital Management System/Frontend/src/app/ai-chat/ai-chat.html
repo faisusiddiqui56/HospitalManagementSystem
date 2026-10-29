@@ -1,0 +1,63 @@
+<div class="ai-chat-widget" [class.open]="isOpen">
+  <!-- Chat Header / Toggle Button -->
+  <button class="chat-toggle-btn" (click)="toggleChat()">
+    <i class="fas" [ngClass]="isOpen ? 'fa-times' : 'fa-robot'"></i>
+    <span *ngIf="!isOpen" class="btn-text">Ask AI</span>
+  </button>
+
+  <!-- Chat Window -->
+  <div class="chat-window" *ngIf="isOpen">
+    <div class="chat-header">
+      <div class="header-info">
+        <div class="ai-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="header-text">
+          <h3>Smart Assistant</h3>
+          <p>Online | Hospital AI</p>
+        </div>
+      </div>
+      <button class="close-btn" (click)="toggleChat()">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+
+    <div class="chat-body" #chatBody>
+      <div class="message-wrapper" *ngFor="let msg of messages" [ngClass]="msg.sender">
+        <div class="message">
+          <div class="message-content">
+            {{ msg.text }}
+          </div>
+          <div class="message-time">
+            {{ msg.timestamp | date:'shortTime' }}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Loading indicator -->
+      <div class="message-wrapper ai" *ngIf="isLoading">
+        <div class="message typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <div class="input-container">
+        <input 
+          type="text" 
+          [(ngModel)]="newMessage" 
+          (keyup.enter)="sendMessage()"
+          placeholder="Type your message..."
+          [disabled]="isLoading"
+        />
+        <button class="send-btn" (click)="sendMessage()" [disabled]="!newMessage.trim() || isLoading">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <div class="disclaimer">
+        AI can make mistakes. Not for medical emergencies.
+      </div>
+    </div>
+  </div>
+</div>

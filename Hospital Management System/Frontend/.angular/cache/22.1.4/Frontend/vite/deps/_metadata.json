@@ -1,0 +1,94 @@
+{
+  "hash": "6fb858d1",
+  "configHash": "81ec1cec",
+  "lockfileHash": "0db158d4",
+  "browserHash": "3caae6ba",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "1732e379",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "22d389d7",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "261d8ae1",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "401f67f7",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "282b0a52",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "f7f29721",
+      "needsInterop": false
+    },
+    "highcharts-angular": {
+      "src": "../../../../../../node_modules/highcharts-angular/fesm2022/highcharts-angular.mjs",
+      "file": "highcharts-angular.js",
+      "fileHash": "f2edee4c",
+      "needsInterop": false
+    },
+    "highcharts": {
+      "src": "../../../../../../node_modules/highcharts/esm/highcharts.js",
+      "file": "highcharts.js",
+      "fileHash": "5985c9aa",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "39c08527",
+      "needsInterop": false
+    },
+    "sweetalert2": {
+      "src": "../../../../../../node_modules/sweetalert2/dist/sweetalert2.all.js",
+      "file": "sweetalert2.js",
+      "fileHash": "5da10a05",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "_xhr-chunk-CJykiVqH": {
+      "file": "_xhr-chunk-CJykiVqH.js",
+      "isDynamicEntry": false
+    },
+    "common-wjjHr_it": {
+      "file": "common-wjjHr_it.js",
+      "isDynamicEntry": false
+    },
+    "core-DnJhzkQh": {
+      "file": "core-DnJhzkQh.js",
+      "isDynamicEntry": false
+    },
+    "esm5-ChK3bs0s": {
+      "file": "esm5-ChK3bs0s.js",
+      "isDynamicEntry": false
+    },
+    "http-BKpocMM7": {
+      "file": "http-BKpocMM7.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-CZueQ3_0": {
+      "file": "platform-browser-CZueQ3_0.js",
+      "isDynamicEntry": false
+    }
+  }
+}

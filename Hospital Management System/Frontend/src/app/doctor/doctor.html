@@ -1,0 +1,180 @@
+<div class="appointments-container">
+    <div class="page-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="page-title m-0">Doctors Directory</h1>
+            <p class="text-muted mt-1 mb-0">Manage hospital doctors, their specialties, and contact details.</p>
+        </div>
+        <button class="btn btn-primary btn-add-appointment shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="bi bi-person-plus-fill me-2"></i> Add Doctor
+        </button>
+    </div>
+
+    <div class="card premium-card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover premium-table mb-0 align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">ID</th>
+                            <th>DOCTOR NAME</th>
+                            <th>SPECIALITY</th>
+                            <th>CONTACT DETAILS</th>
+                            <th>CREATED AT</th>
+                            <th class="text-center">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(doc of doctorList; track doc.id){
+                        <tr>
+                            <td class="ps-4 fw-semibold text-muted">#{{doc.id}}</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-circle bg-light-primary text-primary me-3"><i class="bi bi-person-badge"></i></div>
+                                    <span class="fw-bold text-dark">{{doc.name}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-primary border"><i class="bi bi-award me-1"></i>{{doc.speciality}}</span>
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="text-muted small mb-1"><i class="bi bi-envelope me-1"></i>{{doc.email}}</span>
+                                    <span class="text-muted small"><i class="bi bi-telephone me-1"></i>{{doc.mobile}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>{{doc.createdAt | slice:0:10}}</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="action-buttons d-inline-flex">
+                                    <button class="btn btn-icon btn-outline-primary btn-sm rounded-circle me-2 shadow-sm" (click)="editHandler(doc)" title="Edit Doctor">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-icon btn-outline-danger btn-sm rounded-circle shadow-sm" (click)="deleteDoctor(doc.id)" title="Delete Doctor">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        } @empty {
+                            <tr>
+                                <td colspan="6" class="text-center py-5">
+                                    <div class="empty-state">
+                                        <i class="bi bi-people text-muted mb-3" style="font-size: 3rem;"></i>
+                                        <h5 class="text-muted">No doctors found</h5>
+                                        <p class="text-muted mb-0">Click 'Add Doctor' to register a new doctor.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Modal -->
+<div class="modal fade premium-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-header border-0 pb-0 px-4 pt-4">
+                <h5 class="modal-title fw-bold" id="exampleModalLabel"><i class="bi bi-person-plus text-primary me-2"></i> Register New Doctor</h5>
+                <button type="button" class="btn-close rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form (ngSubmit)="formHandler()" #addForm="ngForm" (keydown.enter)="$event.preventDefault()">
+                <div class="modal-body px-4 py-4">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="name" class="form-label fw-medium text-muted small">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-person"></i></span>
+                                <input [(ngModel)]="doctor.name" name="name" id="name" class="form-control bg-light border-start-0 ps-0" type="text" placeholder="e.g. Dr. John Doe" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="speciality" class="form-label fw-medium text-muted small">Speciality</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-award"></i></span>
+                                <input [(ngModel)]="doctor.speciality" name="speciality" id="speciality" class="form-control bg-light border-start-0 ps-0" type="text" placeholder="e.g. Cardiologist" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label fw-medium text-muted small">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope"></i></span>
+                                <input [(ngModel)]="doctor.email" name="email" id="email" class="form-control bg-light border-start-0 ps-0" type="email" placeholder="Email" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="mobile" class="form-label fw-medium text-muted small">Mobile Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-telephone"></i></span>
+                                <input [(ngModel)]="doctor.mobile" name="mobile" id="mobile" class="form-control bg-light border-start-0 ps-0" type="text" placeholder="Mobile" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 px-4 pb-4 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm" [disabled]="!addForm.valid">
+                        <i class="bi bi-check-lg me-1"></i> Save Doctor
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade premium-modal" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-header border-0 pb-0 px-4 pt-4">
+                <h5 class="modal-title fw-bold" id="editModalLabel"><i class="bi bi-pencil-square text-primary me-2"></i> Edit Doctor Details</h5>
+                <button type="button" class="btn-close rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form (ngSubmit)="updateDoctor()" #editForm="ngForm" (keydown.enter)="$event.preventDefault()">
+                <div class="modal-body px-4 py-4">
+                    <input type="hidden" [(ngModel)]="editDoctor.id" name="id">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="editName" class="form-label fw-medium text-muted small">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-person"></i></span>
+                                <input [(ngModel)]="editDoctor.name" name="name" id="editName" class="form-control bg-light border-start-0 ps-0" type="text" required />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="editSpeciality" class="form-label fw-medium text-muted small">Speciality</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-award"></i></span>
+                                <input [(ngModel)]="editDoctor.speciality" name="speciality" id="editSpeciality" class="form-control bg-light border-start-0 ps-0" type="text" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="editEmail" class="form-label fw-medium text-muted small">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope"></i></span>
+                                <input [(ngModel)]="editDoctor.email" name="email" id="editEmail" class="form-control bg-light border-start-0 ps-0" type="email" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="editMobile" class="form-label fw-medium text-muted small">Mobile Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-telephone"></i></span>
+                                <input [(ngModel)]="editDoctor.mobile" name="mobile" id="editMobile" class="form-control bg-light border-start-0 ps-0" type="text" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 px-4 pb-4 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm" [disabled]="!editForm.valid">
+                        <i class="bi bi-save me-1"></i> Update Details
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

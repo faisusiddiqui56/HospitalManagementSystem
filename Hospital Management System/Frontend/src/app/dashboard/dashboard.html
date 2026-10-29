@@ -1,0 +1,101 @@
+<div class="dashboard-container">
+  <div class="dashboard-canvas">
+
+    <!-- KPI Cards -->
+    <div class="kpi-card kpi-1">
+      <div class="kpi-icon-box bg-primary-light text-primary">
+        <i class="bi bi-person-badge"></i>
+      </div>
+      <div class="kpi-content">
+        <div class="card-title">Total Doctors</div>
+        <div class="card-value">{{stats.doctor}}</div>
+      </div>
+    </div>
+    <div class="kpi-card kpi-2">
+      <div class="kpi-icon-box bg-success-light text-success">
+        <i class="bi bi-people"></i>
+      </div>
+      <div class="kpi-content">
+        <div class="card-title">Total Patients</div>
+        <div class="card-value">{{stats.patient}}</div>
+      </div>
+    </div>
+    <div class="kpi-card kpi-3">
+      <div class="kpi-icon-box bg-warning-light text-warning">
+        <i class="bi bi-calendar-check"></i>
+      </div>
+      <div class="kpi-content">
+        <div class="card-title">Total Appointments</div>
+        <div class="card-value">{{stats.appointment}}</div>
+      </div>
+    </div>
+    <div class="kpi-card kpi-4">
+      <div class="kpi-icon-box bg-info-light text-info">
+        <i class="bi bi-check2-circle"></i>
+      </div>
+      <div class="kpi-content">
+        <div class="card-title">Completed</div>
+        <div class="card-value">{{stats.completedAppointment}}</div>
+      </div>
+    </div>
+
+    <!-- Middle Row Charts -->
+    <div class="chart-box donut-chart-box">
+      <div class="chart-title">Appointment status breakdown</div>
+      <highcharts-chart [options]="donutChartOptions" [update]="updateFlag"
+        style="width: 100%; height: 250px; display: block;">
+      </highcharts-chart>
+    </div>
+
+    <div class="chart-box bar-chart-box">
+      <div class="chart-title">Appointments by Dept</div>
+      <highcharts-chart [options]="barChartOptions" [update]="updateFlag"
+        style="width: 100%; height: 250px; display: block;">
+      </highcharts-chart>
+    </div>
+
+    <!-- Right Column Table -->
+    <div class="table-box">
+      <div class="table-title">Top Doctors</div>
+      <div class="table-scroll-container">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th class="text-right">Total Patients</th>
+              <th class="text-right">Total Appts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doc of topDoctors">
+              <td>{{doc.name}}</td>
+              <td class="text-right">{{doc.patients}}</td>
+              <td class="text-right">{{doc.appts}}</td>
+            </tr>
+            <tr class="table-total">
+              <td>Total</td>
+              <td class="text-right">{{totalPatients}}</td>
+              <td class="text-right">{{totalAppts}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bottom Row Charts -->
+    <div class="chart-box line-chart-box-1">
+      <div class="chart-title">Patient trend</div>
+      <highcharts-chart [options]="lineChart1Options" [update]="updateFlag"
+        style="width: 100%; height: 450px; display: block;">
+      </highcharts-chart>
+    </div>
+
+    <div class="chart-box line-chart-box-2">
+      <div class="chart-title">Appointment trend</div>
+      <highcharts-chart [options]="lineChart2Options" [update]="updateFlag"
+        style="width: 100%; height: 450px; display: block;">
+      </highcharts-chart>
+    </div>
+
+  </div>
+</div>

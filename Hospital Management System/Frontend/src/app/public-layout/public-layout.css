@@ -1,0 +1,81 @@
+.healthplus-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.hp-header {
+  background-color: #ffffff;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+.hp-nav .nav-item {
+  color: #333333;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.hp-nav .nav-item:hover, .hp-nav .nav-item.active {
+  color: #00cfb6;
+}
+
+/* Main Content */
+.hp-main-content {
+  flex: 1;
+}
+
+/* Footer */
+.hp-footer {
+  background-color: #2b3674; /* Dark blue theme */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.footer-title {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.footer-links {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li a {
+  color: #a0abc0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links li a:hover {
+  color: #00cfb6;
+}
+
+.footer-contact li {
+  margin-bottom: 8px;
+}
+
+/* Staff Login Button */
+.hp-login-btn {
+  border: 1.5px solid var(--secondary) !important;
+  color: var(--secondary) !important;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.hp-login-btn:hover {
+  background-color: var(--secondary) !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
